@@ -1,4 +1,4 @@
-module Brisk
+module Blog
   module Models
     autoload :Posts, 'app/models/posts'
   end

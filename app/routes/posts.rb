@@ -1,10 +1,9 @@
 module Blog
   module Routes
-    class Index < Base
-      set :views, current_dir
-
+    class Posts < Base
       include Blog::Models
-      get '/' do
+      set :views, current_dir
+      get '/posts' do
         erb :index
       end
     end

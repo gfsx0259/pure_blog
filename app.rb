@@ -18,5 +18,6 @@ module Blog
     use Rack::Deflater
     use Blog::Routes::Base
     use Blog::Routes::Index
+    use Blog::Routes::Posts
   end
 end
