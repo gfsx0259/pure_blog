@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     ast (2.2.0)
+    mysql2 (0.4.3)
     parser (2.3.0.7)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -30,6 +31,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  mysql2
   puma
   rubocop
   shotgun

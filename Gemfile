@@ -8,3 +8,4 @@ end
 gem 'puma'
 gem 'sinatra'
 gem 'shotgun'
+gem 'mysql2'
