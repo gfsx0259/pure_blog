@@ -13,6 +13,9 @@ module Blog
         end
       end
 
+      validation_required :POST, '/posts/add', params: Post::RULES
+      validation_required :POST, '/posts/update/:id', params: Post::RULES
+
       get '/posts' do
         erb :index, locals: { posts: @post.get_list }
       end
@@ -20,8 +23,6 @@ module Blog
       get '/posts/add' do
         erb :form
       end
-
-      validation_required :POST, '/posts/add', params: Post::RULES
 
       post '/posts/add' do
         if errors
@@ -35,8 +36,6 @@ module Blog
       get '/posts/update/:id' do
         erb :form, locals: { post: @post.get_by_id(params[:id]) }
       end
-
-      validation_required :POST, '/posts/update/:id', params: Post::RULES
 
       post '/posts/update/:id' do
         if errors
