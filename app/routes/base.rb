@@ -1,10 +1,19 @@
 module Blog
   module Routes
     class Base < Sinatra::Application
+      register Validator::Sinatra
+      include Blog::Models
+
       configure do
         set :views, 'app/views/'
         set :erb, layout: :'../layout'
         set :root, File.expand_path('../../../', __FILE__)
+      end
+
+      helpers do
+        def errors
+          @env['validator.messages']
+        end
       end
 
       def self.current_dir

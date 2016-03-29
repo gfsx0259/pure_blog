@@ -1,17 +1,7 @@
 module Blog
   module Routes
     class Posts < Base
-      include Blog::Models
-      register Validator::Sinatra
-      set :views, current_dir
-
       before { @post = Post.new }
-
-      helpers do
-        def errors
-          @env['validator.messages']
-        end
-      end
 
       validation_required :POST, '/posts/add', params: Post::RULES
       validation_required :POST, '/posts/update/:id', params: Post::RULES
