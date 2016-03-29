@@ -1,6 +1,9 @@
 module Blog
   module Routes
     class Posts < Base
+
+     set :views, current_dir
+
       before { @post = Post.new }
 
       validation_required :POST, '/posts/add', params: Post::RULES

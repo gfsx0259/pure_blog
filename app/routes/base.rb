@@ -1,8 +1,9 @@
 module Blog
   module Routes
     class Base < Sinatra::Application
-      register Validator::Sinatra
+
       include Blog::Models
+      register Validator::Sinatra
 
       configure do
         set :views, 'app/views/'
