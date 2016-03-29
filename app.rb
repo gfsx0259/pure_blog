@@ -1,7 +1,7 @@
 require 'bundler'
 require 'sinatra'
-require "sinatra/base"
-require "sinatra/config_file"
+require 'sinatra/base'
+require 'sinatra/config_file'
 Bundler.require
 
 $LOAD_PATH << File.expand_path('../', __FILE__)

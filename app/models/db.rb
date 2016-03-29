@@ -3,7 +3,6 @@ require 'mysql2/em'
 module Blog
   module Models
     class Db
-
       DB = Mysql2::Client.new(App.get_settings.database)
 
       def query(query)
@@ -15,7 +14,7 @@ module Blog
       end
 
       def format(array)
-        array.map(&:to_s).map{ |e| "'#{e}'"  }
+        array.map(&:to_s).map { |e| "'#{e}'" }
       end
 
       def get_list(table)
@@ -34,7 +33,7 @@ module Blog
 
       def update(table, params, id)
         query("UPDATE #{table} SET
-               #{params.map { |k, v| "#{k.to_s} = '#{v}'" }.join(', ')}
+               #{params.map { |k, v| "#{k} = '#{v}'" }.join(', ')}
               WHERE id = '#{escape(id)}'")
       end
 
@@ -47,7 +46,6 @@ module Blog
         rules.each { |rule| data[rule[:name]] = escape(params[rule[:name]]) }
         data
       end
-
     end
   end
 end

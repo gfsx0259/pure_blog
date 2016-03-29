@@ -18,9 +18,7 @@ module Blog
       private
 
       def self.parse_caller(at)
-        if /^(.+?):(\d+)(?::in `(.*)')?/ =~ at
-          Regexp.last_match[3]
-        end
+        Regexp.last_match[3] if /^(.+?):(\d+)(?::in `(.*)')?/ =~ at
       end
     end
   end

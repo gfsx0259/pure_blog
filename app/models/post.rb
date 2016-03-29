@@ -1,14 +1,13 @@
 module Blog
   module Models
     class Post < Db
-
-      TABLE_NAME = 'posts'
+      TABLE_NAME = 'posts'.freeze
 
       RULES = [
-          { :name => :title, :required => true },
-          { :name => :content, :required => true },
-          { :name => :author_id, :required => true }
-      ]
+        { name: :title, required: true },
+        { name: :content, required: true },
+        { name: :author_id, required: true }
+      ].freeze
 
       def get_list
         super(TABLE_NAME)
@@ -29,7 +28,6 @@ module Blog
       def delete(id)
         super(TABLE_NAME, id)
       end
-
     end
   end
 end

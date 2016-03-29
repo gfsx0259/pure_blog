@@ -3,7 +3,7 @@ ruby '2.2.4'
 
 group :development do
   gem 'rubocop', require: false
-  gem "rake"
+  gem 'rake'
   gem 'shotgun'
 end
 
