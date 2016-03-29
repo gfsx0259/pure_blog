@@ -6,12 +6,18 @@
     <th>Id</th>
     <th>Title</th>
     <th>Content</th>
+    <th>Actions</th>
   </tr>
-<% posts.each do |name| %>
+<% posts.each do |post| %>
     <tr>
-      <td><%= name['id'] %></td>
-      <td><%= name['title'] %></td>
-      <td><%= name['content'] %></td>
+      <td><%= post['id'] %></td>
+      <td><%= post['title'] %></td>
+      <td><%= post['content'] %></td>
+      <td>
+        <a href="/posts/update/<%= post['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
+        <a href="/posts/view/<%= post['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>
+        <a href="/posts/delete/<%= post['id'] %>" title="Удалить"><i class="glyphicon glyphicon-trash"></i></a>
+      </td>
     </tr>
 <% end %>
 </table>

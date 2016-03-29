@@ -15,22 +15,36 @@ module Blog
       end
 
       def format(array)
-        array.map(&:to_s).map{ |e| "'" + e + "'" }
+        array.map(&:to_s).map{ |e| "'#{e}'"  }
       end
 
-      def get_list(entity)
-        query("SELECT * FROM #{entity}")
+      def get_list(table)
+        query("SELECT * FROM #{table}")
       end
 
-      def add(entity, params)
-        query("INSERT INTO #{entity}
+      def get_by_id(table, id)
+        query("SELECT * FROM #{table} WHERE id = #{escape(id)}").first
+      end
+
+      def add(table, params)
+        query("INSERT INTO #{table}
               (#{params.keys.join(',')})
               VALUES (#{format(params.values).join(',')})")
       end
 
+      def update(table, params, id)
+        query("UPDATE #{table} SET
+               #{params.map { |k, v| "#{k.to_s} = '#{v}'" }.join(', ')}
+              WHERE id = '#{escape(id)}'")
+      end
+
+      def delete(table, id)
+        query("DELETE FROM #{table} WHERE id = #{escape(id)}")
+      end
+
       def load(rules, params)
         data = {}
-        rules.each { |rule| data[rule[:name]] = params[rule[:name]] }
+        rules.each { |rule| data[rule[:name]] = escape(params[rule[:name]]) }
         data
       end
 
