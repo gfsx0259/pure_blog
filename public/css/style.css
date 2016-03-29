@@ -1,0 +1,12 @@
+body{
+    padding-top: 50px;
+}
+
+.wrap{
+    margin:50px 0;
+}
+
+.control-bar,.form .row{
+    margin-bottom: 20px;
+}
+

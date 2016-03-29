@@ -5,7 +5,6 @@ module Blog
         set :views, 'app/views/'
         set :erb, layout: :'../layout'
         set :root, File.expand_path('../../../', __FILE__)
-        set :show_exceptions, :after_handler
       end
 
       def self.current_dir
@@ -13,17 +12,14 @@ module Blog
       end
 
       def self.caller_method(depth = 1)
-        parse_caller(caller(depth + 1).first).last
+        parse_caller(caller(depth + 1).first)
       end
 
       private
 
       def self.parse_caller(at)
         if /^(.+?):(\d+)(?::in `(.*)')?/ =~ at
-          file   = Regexp.last_match[1]
-          line   = Regexp.last_match[2].to_i
-          method = Regexp.last_match[3]
-          [file, line, method]
+          Regexp.last_match[3]
         end
       end
     end

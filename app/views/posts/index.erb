@@ -1,1 +1,17 @@
-ew
+<div class="control-bar">
+  <a href="/posts/add" class="btn btn-success">Add post</a>
+</div>
+<table class="table table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Content</th>
+  </tr>
+<% posts.each do |name| %>
+    <tr>
+      <td><%= name['id'] %></td>
+      <td><%= name['title'] %></td>
+      <td><%= name['content'] %></td>
+    </tr>
+<% end %>
+</table>

@@ -1,0 +1,7 @@
+database:
+  adapter: "mysql2"
+  database: "purr_blog"
+  username: 'root'
+  password: 1
+session_secret: 'purr_blog'
+show_exceptions: 'after_handler'
