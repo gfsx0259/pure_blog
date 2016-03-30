@@ -2,7 +2,6 @@ module Blog
   module Routes
     class Authors < Base
 
-     set :views, current_dir
 
       before { @author = Author.new }
 
@@ -10,11 +9,11 @@ module Blog
       validation_required :POST, '/authors/update/:id', params: Author::RULES
 
       get '/authors' do
-        erb :index, locals: { authors: @author.get_list }
+        display :index, locals: { authors: @author.get_list }
       end
 
       get '/authors/add' do
-        erb :form
+        display :form
       end
 
       post '/authors/add' do
@@ -27,7 +26,7 @@ module Blog
       end
 
       get '/authors/update/:id' do
-        erb :form, locals: { author: @author.get_by_id(params[:id]) }
+        display :form, locals: { author: @author.get_by_id(params[:id]) }
       end
 
       post '/authors/update/:id' do
@@ -45,7 +44,7 @@ module Blog
       end
 
       get '/authors/view/:id' do
-        erb :view, locals: { author: @author.get_by_id(params[:id]) }
+        display :view, locals: { author: @author.get_by_id(params[:id]) }
       end
 
     end

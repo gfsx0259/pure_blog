@@ -1,20 +1,17 @@
 module Blog
   module Routes
     class Posts < Base
-
-     set :views, current_dir
-
       before { @post = Post.new }
 
       validation_required :POST, '/posts/add', params: Post::RULES
       validation_required :POST, '/posts/update/:id', params: Post::RULES
 
       get '/posts' do
-        erb :index, locals: { posts: @post.get_list }
+        display :index , locals: { posts: @post.get_list }
       end
 
       get '/posts/add' do
-        erb :form, locals: { authors: Author.new.get_list }
+        display :form, locals: { authors: Author.new.get_list }
       end
 
       post '/posts/add' do
@@ -27,7 +24,7 @@ module Blog
       end
 
       get '/posts/update/:id' do
-        erb :form, locals: { post: @post.get_by_id(params[:id]), authors: Author.new.get_list }
+        display :form, locals: { post: @post.get_by_id(params[:id]), authors: Author.new.get_list }
       end
 
       post '/posts/update/:id' do
@@ -45,7 +42,7 @@ module Blog
       end
 
       get '/posts/view/:id' do
-        erb :view, locals: { post: @post.get_by_id(params[:id]) }
+        display :view, locals: { post: @post.get_by_id(params[:id]) }
       end
     end
   end
