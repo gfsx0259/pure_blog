@@ -120,7 +120,7 @@ module Blog
           key = key.to_s
           unless @params[key].to_s[/^\S+@\S+\.\S+$/]
             @invalid_params.push(key)
-            @messages.push(name: key, error: :NOT_VALID_EMAIL)
+            @messages.push(name: key, error: :NOT_VALID_EMAIL, info: "#{key.capitalize!} is incorrect email format ")
           end
         end
       end

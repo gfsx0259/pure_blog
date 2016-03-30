@@ -29,5 +29,6 @@ module Blog
     use Blog::Routes::Base
     use Blog::Routes::Index
     use Blog::Routes::Posts
+    use Blog::Routes::Authors
   end
 end

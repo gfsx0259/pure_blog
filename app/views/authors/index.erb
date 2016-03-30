@@ -1,0 +1,23 @@
+<div class="control-bar">
+  <a href="/authors/add" class="btn btn-success">Add author</a>
+</div>
+<table class="table table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Email</th>
+    <th>Username</th>
+    <th>Actions</th>
+  </tr>
+<% authors.each do |author| %>
+    <tr>
+      <td><%= author['id'] %></td>
+      <td><%= author['email'] %></td>
+      <td><%= author['username'] %></td>
+      <td>
+        <a href="/authors/update/<%= author['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
+        <a href="/authors/view/<%= author['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>
+        <a href="/authors/delete/<%= author['id'] %>" title="Удалить"><i class="glyphicon glyphicon-trash"></i></a>
+      </td>
+    </tr>
+<% end %>
+</table>
