@@ -5,8 +5,12 @@
       <input type="text" name="title" class="form-control" value="<%= post['title'] if defined?(post['title']) %>">
     </div>
     <div class="row">
-      <label>Author id</label>
-      <input type="text" name="author_id" class="form-control" value="<%= post['author_id'] if defined?(post['author_id']) %>">
+      <label>Author</label>
+      <select name="author_id" class="form-control">
+        <% authors.each do |author| %>
+              <option value="<%= author['id'] %>" <%= 'selected=true' if (defined?(post['author_id']) && post['author_id'] == author['id']) %>"><%= author['username'] %></option>
+        <% end %>
+      </select>
     </div>
     <div class="row">
       <label>Content</label>

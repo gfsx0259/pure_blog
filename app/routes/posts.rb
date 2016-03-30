@@ -14,7 +14,7 @@ module Blog
       end
 
       get '/posts/add' do
-        erb :form
+        erb :form, locals: { authors: Author.new.get_list }
       end
 
       post '/posts/add' do
@@ -27,7 +27,7 @@ module Blog
       end
 
       get '/posts/update/:id' do
-        erb :form, locals: { post: @post.get_by_id(params[:id]) }
+        erb :form, locals: { post: @post.get_by_id(params[:id]), authors: Author.new.get_list }
       end
 
       post '/posts/update/:id' do
