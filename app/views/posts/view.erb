@@ -1,5 +1,22 @@
 <div class="col-md-8">
   <h2><%= post['title'] %></h2>
   <p><%= post['content'] %></p>
+  <div id="comments">
+    <% comments.each do |comment| %>
+        <div class="comments-item clearfix">
+          <div class="media">
+            <div class="pull-left">
+              <img src="<%= "https://secure.gravatar.com/avatar/#{Digest::MD5::hexdigest(comment['username'].downcase)}"%>"/>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"> <%= comment['username'] %> <small>Feb 26, 2016 6:13:13 AM here</small></h4>
+              <%= comment['content'] %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+  <%= erb :'posts/comment-add-form', locals: { post_id: post['id'] } %>
+
   <a href="/posts">Назад</a>
 </div>

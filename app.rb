@@ -31,5 +31,6 @@ module Blog
     use Blog::Routes::Posts
     use Blog::Routes::Authors
     use Blog::Routes::Tags
+    use Blog::Routes::Comments
   end
 end

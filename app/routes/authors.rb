@@ -19,6 +19,7 @@ module Blog
           session['errors'] = errors
           redirect '/authors/add'
         end
+
         @author.add(params)
         redirect '/authors'
       end
@@ -37,6 +38,7 @@ module Blog
       end
 
       get '/authors/delete/:id' do
+        Comment.new.delete_by_author(params[:id])
         @author.delete(params[:id])
         redirect '/authors'
       end

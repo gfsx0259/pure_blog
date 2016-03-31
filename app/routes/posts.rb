@@ -43,7 +43,7 @@ module Blog
       end
 
       get '/posts/view/:id' do
-        display :view, locals: { post: @post.get_by_id(params[:id]) }
+        display :view, locals: { post: @post.get_by_id(params[:id]), comments: Comment.new.get_by_post(params[:id]) }
       end
     end
   end

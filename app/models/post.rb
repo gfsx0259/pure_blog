@@ -35,9 +35,11 @@ module Blog
         post_id = params[:id]
         @tag = Tag.new
         super(TABLE_NAME, load(RULES, params), post_id)
-        TagPost.new.remove_by_post(post_id)
-        params['tags'].each do |tag_id|
-          @tag.save(@tag.get_by_id(tag_id)['body'], post_id)
+        if params['tags']
+          TagPost.new.remove_by_post(post_id)
+          params['tags'].each do |tag_id|
+            @tag.save(@tag.get_by_id(tag_id)['body'], post_id)
+          end
         end
       end
 

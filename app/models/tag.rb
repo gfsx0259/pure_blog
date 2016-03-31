@@ -25,13 +25,11 @@ module Blog
 
       def save(tag, post_id)
         tag_data = get_by_body(tag)
-
-        tag_id = if tag_data
-                   tag_data['id'].to_s
-                 else
-                   add(body: tag)
-                 end
-
+        if tag_data
+          tag_id = tag_data['id'].to_s
+        else
+          add(body: tag)
+        end
         TagPost.new.add(tag_id: tag_id, post_id: post_id)
       end
 

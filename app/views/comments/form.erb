@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <form action="/comments/<%= defined?(comment) ? "update/#{comment['id']}" : 'add' %>" method="POST" class="form">
+    <div class="row">
+      <label>Post</label>
+      <select name="post_id" class="form-control">
+        <% posts.each do |post| %>
+            <option value="<%= post['id'] %>" <%= 'selected=true' if (defined?(comment['post_id']) && post['id'] == comment['post_id']) %>"><%= post['title'] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="row">
+      <label>Author</label>
+      <select name="author_id" class="form-control">
+        <% authors.each do |author| %>
+            <option value="<%= author['id'] %>" <%= 'selected=true' if (defined?(comment['author_id']) && comment['author_id'] == author['id']) %>"><%= author['username'] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="row">
+      <label>Content</label>
+      <textarea name="content" class="form-control"><%= comment['content'] if defined?(comment['content']) %></textarea>
+    </div>
+
+    <div class="row">
+      <button type="submit" class="btn <%= defined?(comment) ? 'btn-primary' : 'btn-success' %>"><%= defined?(comment) ? 'Update post' : 'Add post' %></button>
+    </div>
+  </form>
+</div>

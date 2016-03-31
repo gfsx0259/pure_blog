@@ -1,10 +1,6 @@
 <div class="col-md-6">
   <form action="/authors/<%= defined?(author) ? "update/#{author['id']}" : 'add' %>" method="POST" class="form">
     <div class="row">
-      <label>Email</label>
-      <input type="text" name="email" class="form-control" value="<%= author['email'] if defined?(author['email']) %>">
-    </div>
-    <div class="row">
       <label>Username</label>
       <input type="text" name="username" class="form-control" value="<%= author['username'] if defined?(author['username']) %>">
     </div>

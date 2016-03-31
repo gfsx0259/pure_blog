@@ -28,3 +28,11 @@ CREATE TABLE tags_posts
     tag_id INT(11) NOT NULL,
     CONSTRAINT `PRIMARY` PRIMARY KEY (tag_id, post_id)
 );
+
+CREATE TABLE comments
+(
+    id INT(11) PRIMARY KEY NOT NULL,
+    post_id INT(11) NOT NULL,
+    author_id INT(11) NOT NULL,
+    content TEXT NOT NULL
+);

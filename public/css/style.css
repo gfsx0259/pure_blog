@@ -14,3 +14,25 @@ body{
     height: 250px!important;
     width:570px;
 }
+
+table td:last-of-type,table th:last-of-type{
+    text-align: center;
+    font-size:18px!important;
+}
+
+table td span{
+    font-size: 100%!important;
+}
+
+#comments .comments-item{
+    margin-bottom: 15px;
+    padding:20px;
+    width:100%;
+    min-height:80px;
+    border:1px solid gray;
+    border-radius: 5px;
+}
+
+#comment-add-form{
+    margin-top:20px;
+}

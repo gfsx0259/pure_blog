@@ -3,6 +3,7 @@ require 'mysql2/em'
 module Blog
   module Models
     class Db
+      # TODO: make bind ability
       DB = Mysql2::Client.new(App.get_settings.database)
 
       def query(query)
@@ -44,7 +45,7 @@ module Blog
 
       def load(rules, params)
         data = {}
-        rules.each { |rule| (p rule; data[rule[:name]] = escape(params[rule[:name]])) unless rule.key?(:skip_load) }
+        rules.each { |rule| (data[rule[:name]] = escape(params[rule[:name]])) unless rule.key?(:skip_load) }
         data
       end
     end

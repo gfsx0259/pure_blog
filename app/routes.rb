@@ -5,5 +5,6 @@ module Blog
     autoload :Posts, 'app/routes/posts'
     autoload :Authors, 'app/routes/authors'
     autoload :Tags, 'app/routes/tags'
+    autoload :Comments, 'app/routes/comments'
   end
 end

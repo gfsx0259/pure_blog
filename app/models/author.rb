@@ -4,7 +4,6 @@ module Blog
       TABLE_NAME = 'authors'.freeze
 
       RULES = [
-        { name: :email, type: :email, required: true },
         { name: :username, required: true }
       ].freeze
 
@@ -14,6 +13,11 @@ module Blog
 
       def get_by_id(id)
         super(TABLE_NAME, id)
+      end
+
+      def get_by_username(username)
+        result = query("SELECT id FROM #{TABLE_NAME} WHERE username = '#{Db.new.escape(username)}'").first
+        result['id'].to_s if result && result.key?('id')
       end
 
       def add(params)

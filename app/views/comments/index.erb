@@ -1,0 +1,25 @@
+<div class="control-bar">
+  <a href="/comments/add" class="btn btn-success">Add comment</a>
+</div>
+<table class="table table-hover table-striped table-bordered">
+  <tr>
+    <th>Id</th>
+    <th>Content</th>
+    <th>Author</th>
+    <th>Post</th>
+    <th>Actions</th>
+  </tr>
+<% comments.each do |comment| %>
+    <tr>
+      <td><%= comment['id'] %></td>
+      <td><%= comment['content'] %></td>
+      <td><%= comment['username'] %></td>
+      <td><%= comment['title'] %></td>
+      <td>
+        <a href="/comments/update/<%= comment['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
+        <a href="/comments/view/<%= comment['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>
+        <a href="/comments/delete/<%= comment['id'] %>" title="Удалить"><i class="glyphicon glyphicon-trash"></i></a>
+      </td>
+    </tr>
+<% end %>
+</table>
