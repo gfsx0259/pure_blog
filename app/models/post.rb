@@ -28,7 +28,7 @@ module Blog
 
       def add(params)
         post_id = super(TABLE_NAME, load(RULES, params))
-        params['tags'].split(',').each { |tag| Tag.new.save(tag, post_id) }
+        params['tags'].split(',').each { |tag| Tag.new.save(tag.strip, post_id) }
       end
 
       def update(params)
