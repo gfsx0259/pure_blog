@@ -1,0 +1,11 @@
+<div class="col-md-6">
+  <form action="/tags/<%= defined?(tag) ? "update/#{tag['id']}" : 'add' %>" method="POST" class="form">
+    <div class="row">
+      <label>Body</label>
+      <input type="text" name="body" class="form-control" value="<%= tag['body'] if defined?(tag['body']) %>">
+    </div>
+    <div class="row">
+      <button type="submit" class="btn <%= defined?(tag) ? 'btn-primary' : 'btn-success' %>"><%= defined?(tag) ? 'Update tag' : 'Add tag' %></button>
+    </div>
+  </form>
+</div>

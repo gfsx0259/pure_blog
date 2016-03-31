@@ -30,5 +30,6 @@ module Blog
     use Blog::Routes::Index
     use Blog::Routes::Posts
     use Blog::Routes::Authors
+    use Blog::Routes::Tags
   end
 end

@@ -10,3 +10,7 @@ body{
     margin-bottom: 20px;
 }
 
+.tags-select{
+    height: 250px!important;
+    width:570px;
+}

@@ -1,0 +1,21 @@
+<div class="control-bar">
+  <a href="/tags/add" class="btn btn-success">Add tag</a>
+</div>
+<table class="table table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Body</th>
+    <th>Actions</th>
+  </tr>
+<% tags.each do |tag| %>
+    <tr>
+      <td><%= tag['id'] %></td>
+      <td><%= tag['body'] %></td>
+      <td>
+        <a href="/tags/update/<%= tag['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
+        <a href="/tags/view/<%= tag['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>
+        <a href="/tags/delete/<%= tag['id'] %>" title="Удалить"><i class="glyphicon glyphicon-trash"></i></a>
+      </td>
+    </tr>
+<% end %>
+</table>

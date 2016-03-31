@@ -1,8 +1,6 @@
 module Blog
   module Routes
     class Authors < Base
-
-
       before { @author = Author.new }
 
       validation_required :POST, '/authors/add', params: Author::RULES
@@ -46,7 +44,6 @@ module Blog
       get '/authors/view/:id' do
         display :view, locals: { author: @author.get_by_id(params[:id]) }
       end
-
     end
   end
 end

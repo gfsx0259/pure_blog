@@ -7,7 +7,7 @@ module Blog
       validation_required :POST, '/posts/update/:id', params: Post::RULES
 
       get '/posts' do
-        display :index , locals: { posts: @post.get_list }
+        display :index, locals: { posts: @post.get_list }
       end
 
       get '/posts/add' do
@@ -24,7 +24,8 @@ module Blog
       end
 
       get '/posts/update/:id' do
-        display :form, locals: { post: @post.get_by_id(params[:id]), authors: Author.new.get_list }
+        used_tags = TagPost.new.get_ids_by_post(params[:id])
+        display :form, locals: { post: @post.get_by_id(params[:id]), authors: Author.new.get_list, tags: used_tags, tags_list: Tag.new.get_list }
       end
 
       post '/posts/update/:id' do

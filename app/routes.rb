@@ -4,5 +4,6 @@ module Blog
     autoload :Index, 'app/routes/index'
     autoload :Posts, 'app/routes/posts'
     autoload :Authors, 'app/routes/authors'
+    autoload :Tags, 'app/routes/tags'
   end
 end

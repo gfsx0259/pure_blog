@@ -17,6 +17,18 @@
       <textarea name="content" class="form-control" rows="6"><%= post['content'] if defined?(post['content']) %></textarea>
     </div>
     <div class="row">
+      <% if defined?(tags_list) %>
+          <select class="tags-select" name="tags[]" class="form-control" multiple>
+            <% tags_list.each do |tag| %>
+                <option value="<%= tag['id'] %>" <%= 'selected=true' if tags && tags.include?(tag['id']) %>"><%= tag['body'] %></option>
+            <% end %>
+          </select>
+      <% else %>
+          <label>Tags (comma-separated)</label>
+          <input type="text" name="tags" class="form-control">
+      <% end %>
+    </div>
+    <div class="row">
       <button type="submit" class="btn <%= defined?(post) ? 'btn-primary' : 'btn-success' %>"><%= defined?(post) ? 'Update post' : 'Add post' %></button>
     </div>
   </form>

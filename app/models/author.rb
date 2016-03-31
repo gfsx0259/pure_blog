@@ -4,8 +4,8 @@ module Blog
       TABLE_NAME = 'authors'.freeze
 
       RULES = [
-          { name: :email, :type => :email, required: true },
-          { name: :username, required: true }
+        { name: :email, type: :email, required: true },
+        { name: :username, required: true }
       ].freeze
 
       def get_list

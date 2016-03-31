@@ -18,7 +18,7 @@ module Blog
       end
 
       def get_list(table)
-        query("SELECT * FROM #{table}")
+        query("SELECT * FROM #{table} ORDER BY id DESC")
       end
 
       def get_by_id(table, id)
@@ -29,6 +29,7 @@ module Blog
         query("INSERT INTO #{table}
               (#{params.keys.join(',')})
               VALUES (#{format(params.values).join(',')})")
+        DB.last_id.to_s
       end
 
       def update(table, params, id)
@@ -43,7 +44,7 @@ module Blog
 
       def load(rules, params)
         data = {}
-        rules.each { |rule| data[rule[:name]] = escape(params[rule[:name]]) }
+        rules.each { |rule| (p rule; data[rule[:name]] = escape(params[rule[:name]])) unless rule.key?(:skip_load) }
         data
       end
     end
