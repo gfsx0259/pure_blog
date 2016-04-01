@@ -7,14 +7,16 @@
     <th>Title</th>
     <th>Content</th>
     <th>Author</th>
+    <th>Created date</th>
     <th>Actions</th>
   </tr>
 <% posts.each do |post| %>
     <tr>
       <td><%= post['id'] %></td>
       <td><%= post['title'] %></td>
-      <td><%= post['content'] %></td>
+      <td style="max-width:400px"><%= post['content'] %></td>
       <td><%= post['username'] %></td>
+      <td><%= post['created_at'].strftime('%c') %></td>
       <td>
         <a href="/posts/update/<%= post['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
         <a href="/posts/view/<%= post['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>

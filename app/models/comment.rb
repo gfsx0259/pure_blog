@@ -13,6 +13,7 @@ module Blog
         query("SELECT
                c.id,
                c.content,
+               c.created_at,
                a.username,
                p.title
                FROM #{TABLE_NAME} c
@@ -28,6 +29,7 @@ module Blog
                c.content,
                c.author_id,
                c.post_id,
+               c.created_at,
                a.username
                FROM #{TABLE_NAME} c
                LEFT JOIN authors a

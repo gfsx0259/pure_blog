@@ -27,7 +27,7 @@ CREATE TABLE `authors` (
   `username` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `authors_username_uindex` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `authors` (
 
 LOCK TABLES `authors` WRITE;
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
-INSERT INTO `authors` VALUES (2,'konstantin_popov'),(1,'pavel_volkov');
+INSERT INTO `authors` VALUES (3,'Guest'),(2,'konstantin_popov'),(1,'pavel_volkov');
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,8 +52,9 @@ CREATE TABLE `comments` (
   `post_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `content` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +63,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,114,1,'Please contact me!'),(2,115,2,'What\'s details?\r\n\r\n'),(9,115,2,'Some problem');
+INSERT INTO `comments` VALUES (1,114,1,'Please contact me!','2016-04-01 10:53:09'),(2,115,2,'What\'s details?\r\n\r\n','2016-04-01 10:53:10'),(9,115,2,'Some problem','2016-04-01 10:53:11'),(10,115,3,'New comment','2016-04-01 10:53:12');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,8 +79,9 @@ CREATE TABLE `posts` (
   `author_id` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `content` text,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +90,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,2,'Sample text','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),(108,2,'Nokia 5228','Mobile telephone. 2009.'),(113,2,'NFS 2015','NFS Underground 3'),(114,2,'Skype','Desktop messanger '),(115,2,'Web developer','Skils and requirements.');
+INSERT INTO `posts` VALUES (1,2,'Sample text','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','2016-04-01 10:48:49'),(108,2,'Nokia 5228','Mobile telephone. 2009.','2016-04-01 10:48:51'),(113,2,'NFS 2015','NFS Underground 3','2016-04-01 10:48:53'),(114,2,'Skype','Desktop messanger ','2016-04-01 10:48:54'),(115,2,'Web developer','Skils and requirements.','2016-04-01 10:48:55'),(134,3,'Date test','Date test','2016-04-01 10:44:16');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,7 +106,7 @@ CREATE TABLE `tags` (
   `body` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `tags_body_uindex` (`body`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +115,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (15,' nfs'),(21,' online'),(20,' web'),(12,'custom'),(14,'game'),(11,'music'),(19,'skype'),(3,'sport');
+INSERT INTO `tags` VALUES (23,' finish'),(15,' nfs'),(21,' online'),(20,' web'),(12,'custom'),(14,'game'),(22,'last'),(11,'music'),(19,'skype'),(3,'sport');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +139,7 @@ CREATE TABLE `tags_posts` (
 
 LOCK TABLES `tags_posts` WRITE;
 /*!40000 ALTER TABLE `tags_posts` DISABLE KEYS */;
-INSERT INTO `tags_posts` VALUES (108,11),(1,12),(108,12),(109,12),(110,12),(111,12),(111,13),(113,14),(113,15),(114,19),(115,20),(114,21);
+INSERT INTO `tags_posts` VALUES (108,11),(1,12),(108,12),(109,12),(110,12),(111,12),(111,13),(113,14),(113,15),(114,19),(115,20),(114,21),(117,22),(118,22),(119,22),(118,23),(119,23),(121,24),(122,24),(122,25),(124,26),(127,28),(129,29),(131,30),(132,31),(133,32);
 /*!40000 ALTER TABLE `tags_posts` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -150,4 +152,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-31 18:05:18
+-- Dump completed on 2016-04-01 10:57:13

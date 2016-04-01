@@ -7,6 +7,7 @@
     <th>Content</th>
     <th>Author</th>
     <th>Post</th>
+    <th>Created date</th>
     <th>Actions</th>
   </tr>
 <% comments.each do |comment| %>
@@ -15,6 +16,7 @@
       <td><%= comment['content'] %></td>
       <td><%= comment['username'] %></td>
       <td><%= comment['title'] %></td>
+      <td><%= comment['created_at'] %></td>
       <td>
         <a href="/comments/update/<%= comment['id'] %>" title="Обновить"><i class="glyphicon glyphicon-pencil"></i></a>
         <a href="/comments/view/<%= comment['id'] %>" title="Просмотр"><i class="glyphicon glyphicon-eye-open"></i></a>

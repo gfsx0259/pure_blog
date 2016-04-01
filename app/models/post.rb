@@ -15,6 +15,7 @@ module Blog
                p.id,
                p.title,
                p.content,
+               p.created_at,
                a.username
                FROM #{TABLE_NAME} p
                LEFT JOIN authors a

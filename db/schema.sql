@@ -12,7 +12,8 @@ CREATE TABLE posts
     id INT(11) PRIMARY KEY NOT NULL,
     author_id INT(11),
     title VARCHAR(255),
-    content TEXT
+    content TEXT,
+    created_at TIMESTAMP DEFAULT 'CURRENT_TIMESTAMP'
 );
 
 CREATE TABLE tags
@@ -34,5 +35,6 @@ CREATE TABLE comments
     id INT(11) PRIMARY KEY NOT NULL,
     post_id INT(11) NOT NULL,
     author_id INT(11) NOT NULL,
-    content TEXT NOT NULL
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT 'CURRENT_TIMESTAMP'
 );
