@@ -3,7 +3,7 @@ require 'mysql2/em'
 module Blog
   module Models
     class Db
-      # TODO: make bind ability
+      # TODO: make bind ability in query function
       DB = Mysql2::Client.new(App.get_settings.database)
 
       def query(query)
