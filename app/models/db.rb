@@ -4,7 +4,14 @@ module Blog
   module Models
     class Db
       # TODO: make bind ability in query function
-      DB = Mysql2::Client.new(App.get_settings.database)
+
+      if Sinatra::Base.development?
+        settings = App.get_settings.database
+      else
+        settings = ENV['DATABASE_URL']
+      end
+
+      DB = Mysql2::Client.new(settings)
 
       def query(query)
         DB.query(query)
