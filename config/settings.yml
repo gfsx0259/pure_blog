@@ -1,4 +1,4 @@
-development:
+database_config:
   adapter: mysql2
   username: root
   password: 1
