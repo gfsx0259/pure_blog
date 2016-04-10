@@ -8,7 +8,8 @@ module Blog
       production_settings = {'host'=>'us-cdbr-iron-east-03.cleardb.net',
                              'username'=>'b929e50df4c80c',
                              'password'=>'df8cef4d',
-                             'database'=>'heroku_e36df1354c46663'}
+                             'database'=>'heroku_e36df1354c46663',
+                              'reconnect'=>'true'}
 
       DB = Mysql2::Client.new(ENV.key?('DATABASE_URL') ?  production_settings : App.get_settings.database_config)
 
