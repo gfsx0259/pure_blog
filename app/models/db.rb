@@ -8,7 +8,7 @@ module Blog
 
         settings = App.get_settings.database
 
-
+p App.get_settings.database
       DB = Mysql2::Client.new(settings)
 
       def query(query)
