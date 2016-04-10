@@ -21,7 +21,7 @@ module Blog
       config_file 'config/settings.yml'
     end
 
-    def self.get_settings(env)
+    def self.get_settings
       settings.production
     end
 

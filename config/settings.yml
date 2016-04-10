@@ -10,6 +10,7 @@ development:
 
 production:
   <<: *default
-  database: ENV['DATABASE_URL']
+  database: ENV['DATABASE_NAME']
   username: ENV['DATABASE_USERNAME']
-  password: ENV['DATABASE_PASSWORDs']
+  password: ENV['DATABASE_PASSWORD']
+  host: ENV['DATABASE_HOST']
