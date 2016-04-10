@@ -21,8 +21,8 @@ module Blog
       config_file 'config/settings.yml'
     end
 
-    def self.get_settings
-      settings
+    def self.get_settings(env)
+      settings.production
     end
 
     use Rack::Deflater
