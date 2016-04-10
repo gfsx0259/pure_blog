@@ -5,11 +5,9 @@ module Blog
     class Db
       # TODO: make bind ability in query function
 
-      if Sinatra::Base.development?
+
         settings = App.get_settings.database
-      else
-        settings = ENV['DATABASE_URL']
-      end
+
 
       DB = Mysql2::Client.new(settings)
 
