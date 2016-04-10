@@ -5,7 +5,12 @@ module Blog
     class Db
       # TODO: make bind ability in query function
 
-      DB = Mysql2::Client.new(ENV.key?('DATABASE_URL') ? {'host'=>'us-cdbr-iron-east-03.cleardb.net','username'=>'b929e50df4c80c', 'password'=>'df8cef4d','database'=>'heroku_e36df1354c46663'} : App.get_settings.database_config)
+      production_settings = {'host'=>'us-cdbr-iron-east-03.cleardb.net',
+                             'username'=>'b929e50df4c80c',
+                             'password'=>'df8cef4d',
+                             'database'=>'heroku_e36df1354c46663'}
+
+      DB = Mysql2::Client.new(ENV.key?('DATABASE_URL') ?  production_settings : App.get_settings.database_config)
 
       def query(query)
         DB.query(query)
