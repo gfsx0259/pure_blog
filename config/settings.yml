@@ -9,8 +9,4 @@ development:
   database: purr_blog
 
 production:
-  <<: *default
-  database: ENV['DATABASE_NAME']
-  username: ENV['DATABASE_USERNAME']
-  password: ENV['DATABASE_PASSWORD']
-  host: ENV['DATABASE_HOST']
+  host: ENV['CLEARDB_DATABASE_URL']

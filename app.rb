@@ -22,7 +22,7 @@ module Blog
     end
 
     def self.get_settings
-      settings.production
+      settings.production.host
     end
 
     use Rack::Deflater
