@@ -5,7 +5,7 @@ module Blog
     class Db
       # TODO: make bind ability in query function
 
-      DB = Mysql2::Client.new(App.get_settings)
+      DB = Mysql2::Client.new(ENV['CLEARDB_DATABASE_URL'])
 
       def query(query)
         DB.query(query)
